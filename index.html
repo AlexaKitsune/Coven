@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Página de bienvenida</title>
+</head>
+<body>
+
+<article class="coven-article">
+    <h2 id="MainPage-firstH2">
+        <div>Bienvenid<input type="text" id="MainPage-inputX" maxlength="1" placeholder="x" value=""></div>
+        <div>al Aquelarre</div>
+    </h2>
+
+    <h3>Misión y visión</h3>
+    <p>
+        En El Aquelarre, buscamos crear un mundo mejor con base en el apoyo mutuo y orientación.<br>
+        Crearemos un impacto positivo en cada miembro del Aquelarre, así como en su calidad de vida.
+    </p>
+
+    <h4>Misión</h4>
+
+    <p><!--AI assisted-->
+        Los miembros del Aquelarre trabajamos juntos para ayudarnos mutuamente y brindar orientación y consejos a los demás, con el objetivo de mejorar la calidad de vida de cada uno.
+    </p>
+
+    <h4>Visión</h4>
+    <p>El objetivo del Aquelarre es crear un futuro mejor, para los integrantes del mismo y las personas que nos rodean.</p>
+    <p><!--AI assisted-->Además, al trabajar juntos, el Aquelarre puede tener un impacto positivo en el mundo en general, contribuyendo a la creación de una sociedad más justa y equitativa.</p>
+
+    <h3>¿Cómo crearemos un futuro mejor?</h3>
+    <h4>Metas a Corto Plazo</h4>
+    <p>Crearemos una comunidad diversa con personas aptas y comprometidas por una mejora en común.<br></p>
+    <h4>Metas a Mediano Plazo</h4>
+    <p>Llevaremos a cabo eventos mensuales o semestrales en los cuales haremos entregas de membresías y reconocimientos, intercambiaremos conocimientos y consolidaremos nuevas metas.<br></p>
+    <h4>A futuro</h4>
+    <p>Tras haber alcanzado la estabilidad, cada integrante apoyará al anterior a dar sus pasos, y esto hará que empecemos a tener un impacto en la comunidad.<br></p>
+
+    <h3>¿Cómo hago para formar parte de esto?</h3>
+    <p>Habla con la persona que te facilitó la información, ella te canalizará con nuestros <i>Sondeadores de Aptitud</i>, los cuales dictaminarán si tus valores se alínean con los de La Comunidad.</p>
+    <p>Tras una breve entrevista, tu proceso de inscripción estará casi completo. Se te proporcionarán unas metas personales sencillas, y si las cumples, ¡Felicidades, eres parte de La Comunidad!</p>
+
+</article>
+
+</body>
+<script src="./assets/yip.js"></script>
+<script src="./assets/script.js"></script>
+<script>
+setInterval(() => {
+    element('#MainPage-inputX').placeholder = "__"
+    setTimeout(() => {
+        element('#MainPage-inputX').placeholder = "X"
+    }, 1000);
+}, 2000);
+</script>
+<style>
+#MainPage-inputX{
+    height: 4.5ch; margin-top: 0; font-family: 'Bebas Neue', cursive;
+    font-size: 2.5ch;
+    margin-bottom: 0ch;
+    width: 1.1ch;
+    height: fit-content;
+    padding: 0 !important;
+    border: none;
+    background: transparent;
+    color: white;
+}
+
+@media all and (min-width:900px){
+    #MainPage-firstH2{
+        display: flex;
+    }
+}
+
+
+#MainPage-firstH2 > div{
+    width: fit-content;
+    min-width: 10ch;
+}
+</style>
+</html>

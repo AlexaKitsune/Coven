@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <!--start codemirror-->
+        <link rel="stylesheet" href="../assets/codemirror/lib/codemirror.css">
+        <script src="../assets/codemirror/lib/codemirror.js"></script>
+        <script src="../assets/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+        <script src="../assets/codemirror/mode/xml/xml.js"></script>
+        <script src="../assets/codemirror/mode/javascript/javascript.js"></script>
+        <script src="../assets/codemirror/mode/css/css.js"></script>
+        <script src="../assets/codemirror/mode/python/python.js"></script>
+    <!--end codemirror-->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+<body>
+
+<article class="coven-article">
+    
+    <h2>Pentagrama</h2>
+
+    <p>Empezaremos esta sección proveyendo algunos de los elementos con los que fue construido este sitio.</p>
+    <p>Una de las piezas más complejas fue el diseño del pentagrama - ubicado en el menú lateral, el cual está realizado utilizando solo HTML y CSS, a excepción de las imágenes de animales en las puntas de la estrella.</p>
+    
+    <div id="resourcePentagrama-div">
+        <span id="container-pentagram">
+            <div class="symbol-external-circle">
+                <div class="symbol-internal-circle"></div>
+                <div class="symbol-internal-circle-2"></div>
+                <div class="symbol-internal-circle-3"></div>
+                <div class="symbol-internal-circle-4"></div>
+                <div id="symbol-pentagon">
+                    <div class="pentagon-side1"></div>
+                    <div class="pentagon-side2"></div>
+                    <div class="pentagon-side3"></div>
+                    <div class="pentagon-side4"></div>
+                    <div class="pentagon-side5"></div>
+                </div>
+                <div id="symbol-star">
+                    <div class="star-side1"></div>
+                    <div class="star-side2"></div>
+                    <div class="star-side3"></div>
+                    <div class="star-side4"></div>
+                    <div class="star-side5"></div>
+                </div>
+                <div id="symbol-imgs">
+                    <div class="imgs-1"> <img class="inactive-img" src=../assets/animal_pillars/orange_silhouette_cat.png> <img class="active-img" src="../assets/animal_pillars/00fff0_silhouette_cat.png"> </div>
+                    <div class="imgs-2"> <img class="inactive-img" src=../assets/animal_pillars/orange_silhouette_fox.png> <img class="active-img" src="../assets/animal_pillars/00fff0_silhouette_fox.png"> </div>
+                    <div class="imgs-3"> <img class="inactive-img" src=../assets/animal_pillars/orange_silhouette_doe.png> <img class="active-img" src="../assets/animal_pillars/00fff0_silhouette_doe.png"> </div>
+                    <div class="imgs-4"> <img class="inactive-img" src=../assets/animal_pillars/orange_silhouette_cow.png> <img class="active-img" src="../assets/animal_pillars/00fff0_silhouette_cow.png"> </div>
+                    <div class="imgs-5"> <img class="inactive-img" src=../assets/animal_pillars/orange_silhouette_hyn.png> <img class="active-img" src="../assets/animal_pillars/00fff0_silhouette_hyn.png"> </div>
+                </div>
+                <div id="symbol-shapes">
+                    <div class="symbol-shape1"><div class="symbol-shape_"></div></div>
+                    <div class="symbol-shape2"><div class="symbol-shape_"></div></div>
+                    <div class="symbol-shape3"><div class="symbol-shape_"></div></div>
+                    <div class="symbol-shape4"><div class="symbol-shape_"></div></div>
+                    <div class="symbol-shape5"><div class="symbol-shape_"></div></div>
+                </div>
+            </div>
+        </span>
+    </div>
+    
+    <h3>Código</h3>
+    
+    <p>A continuación, se muestra el código implicado en su elaboración.</p>
+    
+    <p>HTML:</p>
+    <code id="resourcePentagrama_html">
+    <span id="container-pentagram">
+        <div class="symbol-external-circle">
+            <div class="symbol-internal-circle"></div>
+            <div class="symbol-internal-circle-2"></div>
+            <div class="symbol-internal-circle-3"></div>
+            <div class="symbol-internal-circle-4"></div>
+            <div id="symbol-pentagon">
+                <div class="pentagon-side1"></div>
+                <div class="pentagon-side2"></div>
+                <div class="pentagon-side3"></div>
+                <div class="pentagon-side4"></div>
+                <div class="pentagon-side5"></div>
+            </div>
+            <div id="symbol-star">
+                <div class="star-side1"></div>
+                <div class="star-side2"></div>
+                <div class="star-side3"></div>
+                <div class="star-side4"></div>
+                <div class="star-side5"></div>
+            </div>
+            <div id="symbol-imgs">
+                <div class="imgs-1"> <img class="inactive-img" src=./orange_silhouette_cat.png> <img class="active-img" src="./00fff0_silhouette_cat.png"> </div>
+                <div class="imgs-2"> <img class="inactive-img" src=./orange_silhouette_fox.png> <img class="active-img" src="./00fff0_silhouette_fox.png"> </div>
+                <div class="imgs-3"> <img class="inactive-img" src=./orange_silhouette_doe.png> <img class="active-img" src="./00fff0_silhouette_doe.png"> </div>
+                <div class="imgs-4"> <img class="inactive-img" src=./orange_silhouette_cow.png> <img class="active-img" src="./00fff0_silhouette_cow.png"> </div>
+                <div class="imgs-5"> <img class="inactive-img" src=./orange_silhouette_hyn.png> <img class="active-img" src="./00fff0_silhouette_hyn.png"> </div>
+            </div>
+            <div id="symbol-shapes">
+                <div class="symbol-shape1"><div class="symbol-shape_"></div></div>
+                <div class="symbol-shape2"><div class="symbol-shape_"></div></div>
+                <div class="symbol-shape3"><div class="symbol-shape_"></div></div>
+                <div class="symbol-shape4"><div class="symbol-shape_"></div></div>
+                <div class="symbol-shape5"><div class="symbol-shape_"></div></div>
+            </div>
+        </div>
+    </span>
+    </code>
+    
+    <p>CSS:</p>
+    <code id="resourcePentagrama_css">
+    /* Pentagram */
+    #container-pentagram {
+        width: 20vw;
+        height: 20vw;
+    }
+    
+    /* Symbol */
+    .symbol-external-circle,
+    .symbol-internal-circle,
+    .symbol-internal-circle-2,
+    .symbol-internal-circle-3,
+    .symbol-internal-circle-4 {
+        border-radius: 100vw;
+    }
+    
+    .symbol-external-circle {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .symbol-external-circle * {
+        position: absolute;
+        animation-name: appear-symbol;
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+    }
+    
+    .symbol-internal-circle {
+        width: 86%;
+        height: 86%;
+    }
+    
+    .symbol-internal-circle-2 {
+        width: 47%;
+        height: 47%;
+    }
+    
+    .symbol-internal-circle-3 {
+        width: 20%;
+        height: 20%;
+    }
+    
+    .symbol-internal-circle-4 {
+        width: 105%;
+        height: 105%;
+    }
+    
+    /* Pentagon */
+    #symbol-pentagon {
+        margin-left: -1px;
+        width: 38%;
+        height: 38%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        border-radius: 100vw;
+        position: absolute;
+        animation-name: appear-symbol;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+    }
+    
+    .pentagon-side1,
+    .pentagon-side2,
+    .pentagon-side3,
+    .pentagon-side4,
+    .pentagon-side5 {
+        width: 73%;
+        height: 50%;
+        transform-origin: 50% 0;
+    }
+    
+    .pentagon-side1 {
+        transform: rotate(000deg);
+    }
+    
+    .pentagon-side2 {
+        transform: rotate(072deg);
+    }
+    
+    .pentagon-side3 {
+        transform: rotate(144deg);
+    }
+    
+    .pentagon-side4 {
+        transform: rotate(216deg);
+    }
+    
+    .pentagon-side5 {
+        transform: rotate(288deg);
+    }
+    
+    /* Star */
+    #symbol-star {
+        width: 31%;
+        height: 31%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        border-radius: 100vw;
+        position: absolute;
+        transform: rotate(180deg);
+        animation-name: appear-symbol;
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
+    }
+    
+    .star-side1,
+    .star-side2,
+    .star-side3,
+    .star-side4,
+    .star-side5 {
+        width: 309%;
+        height: 50%;
+        transform-origin: 50% 0;
+    }
+    
+    .star-side1 {
+        transform: rotate(000deg);
+    }
+    
+    .star-side2 {
+        transform: rotate(072deg);
+    }
+    
+    .star-side3 {
+        transform: rotate(144deg);
+    }
+    
+    .star-side4 {
+        transform: rotate(216deg);
+    }
+    
+    .star-side5 {
+        transform: rotate(288deg);
+    }
+    
+    /* imgs */
+    #symbol-imgs {
+        width: 100%;
+        height: 100%;
+        border-radius: 3vw;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        animation-name: appear-symbol;
+        animation-duration: 4s;
+        animation-fill-mode: forwards;
+    }
+    
+    .imgs-1,
+    .imgs-2,
+    .imgs-3,
+    .imgs-4,
+    .imgs-5 {
+        width: 15%;
+        padding-bottom: 70%;
+        margin-top: -20%;
+        transform-origin: 50% 100%;
+        /*filter: drop-shadow(5px 5px 5px red);*/
+        position: absolute;
+    }
+    
+    .inactive-img, .active-img{
+        width: 100%;
+        position: absolute;
+        top: 0;
+    }
+    
+    .imgs-1 {
+        transform: rotate(000deg);
+    }
+    
+    .imgs-2 {
+        transform: rotate(072deg);
+    }
+    
+    .imgs-3 {
+        transform: rotate(144deg);
+    }
+    
+    .imgs-4 {
+        transform: rotate(216deg);
+    }
+    
+    .imgs-5 {
+        transform: rotate(288deg);
+    }
+    
+    /* Shapes */
+    #symbol-shapes {
+        position: absolute;
+        width: 80%;
+        height: 80%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        animation-name: appear-symbol;
+        animation-duration: 5s;
+        animation-fill-mode: forwards;
+    }
+    
+    .symbol-shape1,
+    .symbol-shape2,
+    .symbol-shape3,
+    .symbol-shape4,
+    .symbol-shape5 {
+        height: 50%;
+        width: 5%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        transform-origin: 50% 0;
+    }
+    
+    .symbol-shape_ {
+        width: 100%;
+        height: 10%;
+        border-radius: 100vw;
+    }
+    
+    .symbol-shape1 {
+        transform: rotate(000deg);
+    }
+    
+    .symbol-shape2 {
+        transform: rotate(072deg);
+    }
+    
+    .symbol-shape3 {
+        transform: rotate(144deg);
+    }
+    
+    .symbol-shape4 {
+        transform: rotate(216deg);
+    }
+    
+    .symbol-shape5 {
+        transform: rotate(288deg);
+    }
+    
+    /* Colors */
+    .symbol-external-circle,
+    .symbol-internal-circle,
+    .symbol-internal-circle-2,
+    .symbol-internal-circle-3,
+    .symbol-internal-circle-4,
+    .symbol-shape_ {
+        border: 2px solid orange;
+        transition: all 0.5s;
+    }
+    
+    .pentagon-side1,
+    .pentagon-side2,
+    .pentagon-side3,
+    .pentagon-side4,
+    .pentagon-side5,
+    .star-side1,
+    .star-side2,
+    .star-side3,
+    .star-side4,
+    .star-side5 {
+        border-bottom: 2px solid orange;
+        transition: all 0.5s;
+    }
+    
+    .active-img{
+        opacity: 0 !important;
+        z-index: 0;
+    }
+    .inactive-img{
+        opacity: 1 !important;
+        z-index: 1;
+    }
+    
+    /* Animations transition (pentagon, star, img, shapes) */
+    #symbol-pentagon,
+    #symbol-star,
+    #symbol-imgs,
+    #symbol-shapes {
+        transition: transform 1s;
+    }
+    
+    #container-pentagram:hover #symbol-pentagon,
+    #container-pentagram:hover #symbol-star,
+    #container-pentagram:hover #symbol-imgs,
+    #container-pentagram:hover #symbol-shapes {
+        transition: transform 1s;
+        cursor: pointer;
+    }
+    
+    #container-pentagram:hover #symbol-pentagon {
+        transform: rotate(180deg);
+    }
+    
+    #container-pentagram:hover #symbol-star {
+        transform: rotate(72deg);
+    }
+    
+    #container-pentagram:hover #symbol-imgs {
+        transform: rotate(108deg);
+    }
+    
+    #container-pentagram:hover #symbol-shapes {
+        transform: rotate(252deg);
+    }
+    
+    #container-pentagram:hover .symbol-external-circle,
+    #container-pentagram:hover .symbol-internal-circle,
+    #container-pentagram:hover .symbol-internal-circle-2,
+    #container-pentagram:hover .symbol-internal-circle-3,
+    #container-pentagram:hover .symbol-internal-circle-4,
+    #container-pentagram:hover .symbol-shape_ {
+        border: 2px solid #00fff0;
+        box-shadow: 0 0 7px #00fff0, 0 0 6px #00fff0 inset;
+        transition: all 0.3s;
+    }
+    
+    #container-pentagram:hover .pentagon-side1,
+    #container-pentagram:hover .pentagon-side2,
+    #container-pentagram:hover .pentagon-side3,
+    #container-pentagram:hover .pentagon-side4,
+    #container-pentagram:hover .pentagon-side5,
+    #container-pentagram:hover .star-side1,
+    #container-pentagram:hover .star-side2,
+    #container-pentagram:hover .star-side3,
+    #container-pentagram:hover .star-side4,
+    #container-pentagram:hover .star-side5 {
+        border-bottom: 2px solid #00fff0;
+        box-shadow: 0px 10px 6px -10px #00fff0, 0 -10px 6px -10px #00fff0 inset;
+        transition: all 0.3s;
+    }
+    
+    #container-pentagram:hover .active-img{
+        opacity: 1 !important;
+        filter: drop-shadow(0px 0px 5px #00fff0);
+    }
+    #container-pentagram:hover .inactive-img{
+        opacity: 0 !important;
+    }
+    
+    /* Appear animations */
+    @keyframes appear-symbol{
+        from{ opacity:0; }
+        to{ opacity:1; }
+    }
+    </code>
+    
+    <h3>Imágenes</h3>
+    
+    <p>
+        El <span class="micro-code">src</span> de las etiquetas <span class="micro-code">img</span> hacen referencia a las imágenes de animales ubicados en las puntas de las estrellas, siendo PNGs con fondo transparente. Las imágenes se describen de la siguiente manera:
+    </p>
+    
+    <br>
+    <span class="micro-code">00fff0_shilouette_cat.png</span><br>
+    <span class="micro-code">00fff0_shilouette_cow.png</span><br>
+    <span class="micro-code">00fff0_shilouette_doe.png</span><br>
+    <span class="micro-code">00fff0_shilouette_fox.png</span><br>
+    <span class="micro-code">00fff0_shilouette_hyn.png</span>
+    <p>Deberán ser las imágenes de un gato, vaca, venado, zorro y hiena, respectivamente. Todas en azul (#00FFF0) con fondo transparente.</p>
+    
+    <br>
+    
+    <span class="micro-code">orange_shilouette_cat.png</span><br>
+    <span class="micro-code">orange_shilouette_cow.png</span><br>
+    <span class="micro-code">orange_shilouette_doe.png</span><br>
+    <span class="micro-code">orange_shilouette_fox.png</span><br>
+    <span class="micro-code">orange_shilouette_hyn.png</span>
+    <p>Deberán ser las imágenes de un gato, vaca, venado, zorro y hiena, respectivamente. Todas en naranja (#FFA500) con fondo transparente.</p>
+    
+    <p>Cada imagen deberá contener solo un color (el indicado) y transparencia.</p>
+
+</article>
+
+</body>
+<script src="../assets/yip.js"></script>
+<script src="../assets/script.js"></script>
+<script>
+setCodeMirror("resourcePentagrama_html", false, "htmlmixed");
+
+setCodeMirror("resourcePentagrama_css", false, "css");
+</script>
+
+<style>
+#resourcePentagrama-div{
+    width: 30vw;
+    height: 30vw;
+    align-self: center;
+    margin-top: 15ch;
+    margin-bottom: 10ch;
+}
+@media all and (max-width:666px){
+    #resourcePentagrama-div{
+        width: 50vw;
+        height: 50vw;
+        margin-top: 7ch;
+        margin-bottom: 5ch;
+    }
+}
+</style>
+</html>

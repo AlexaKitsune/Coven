@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <!--start codemirror-->
+        <link rel="stylesheet" href="../assets/codemirror/lib/codemirror.css">
+        <script src="../assets/codemirror/lib/codemirror.js"></script>
+        <script src="../assets/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+        <script src="../assets/codemirror/mode/xml/xml.js"></script>
+        <script src="../assets/codemirror/mode/javascript/javascript.js"></script>
+        <script src="../assets/codemirror/mode/css/css.js"></script>
+        <script src="../assets/codemirror/mode/python/python.js"></script>
+    <!--end codemirror-->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+<body>
+
+<article class="coven-article">
+    <h2>Editor de código Javascript en línea</h2>
+
+    <p>Este editor de Javascript online está diseñado para ayudar a asistir y resolver algunos problemas de código de manera sencilla y en cualquier lugar, desde la consola de este navegador.</p>
+    <p>⚠️ Este editor se encuentra en desarrollo y algunas respuestas podrían ser inestables. Por favor, use <span class="micro-code">display()</span> en lugar de <span class="micro-code">console.log()</span>.</p>
+
+    <code style="margin-top:5ch;">
+        <textarea id="resourceEditorHTML-CSS-JS_textarea"></textarea>
+    </code>
+
+    <div id="resourceEditorHTML-CSS-JS_div">
+    </div>
+</article>
+
+</body>
+<script src="../assets/yip.js"></script>
+<script src="../assets/script.js"></script>
+<script>
+    function display(x){return x};
+    let editor1 = new setEditorCodeMirror('resourceEditorHTML-CSS-JS_textarea');
+    editor1.setEditor();
+    setInterval(() => {
+    
+        var getCode = editor1.getCode();
+        let processedCode = display(`\n ${getCode} \n`);;
+    
+        try{
+            element('#resourceEditorHTML-CSS-JS_div').innerHTML = "🦊>> " + eval(processedCode
+                .replace('console.log','display')
+            );
+        } catch(error){
+            element('#resourceEditorHTML-CSS-JS_div').innerHTML = "🦊>> Sowwy, " + error + " UnU";
+            //console.error("Sowwy, my dev friend. Code failed. Look at this: "+ error + " UnU");
+        }
+    }, 3000);
+    
+</script>
+<style>
+    #resourceEditorHTML-CSS-JS_textarea{
+        width: 100%;
+        overflow-x: auto;
+    }
+    
+    #resourceEditorHTML-CSS-JS_div{
+        font-family: monospace;
+        width: calc(100% - 2ch);
+        padding: 1ch;
+        background-color: black;
+        border-radius: 1ch;
+        min-height: 5ch;
+    }
+    </style>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+<body>
+
+<article class="coven-article">
+
+    <h2>Yip.js - Librería de Javascript del Aquelarre</h2>
+
+    <p>
+        El Aquelarre está construido utilizando sus propias bases de cógido. Una de ellas es <strong>Alexa.js</strong>, una librería creada para facilitar la programación y el desarrollo de aplicaciones web.
+    </p>
+
+    <p>Puedes usarla añadiendo el siguiente script al inicio de tu archivo HTML:<br><br></p>
+    
+    <span class="micro-code" id="yip-js-script">
+    
+    </span>
+
+</article>
+
+</body>
+<script src="../assets/yip.js"></script>
+<script src="../assets/script.js"></script>
+<script>
+element('#yip-js-script').innerHTML = `&lt;script src="${window.location.href.split('resources')[0]}assets/yip.js"&gt; &lt;/script&gt;
+<br>&lt;script src="https://raw.githubusercontent.com/AlexaKitsune/"&gt; &lt;/script&gt;`
+</script>
+</html>
