@@ -187,6 +187,14 @@ body{
     margin-bottom: 0.5ch;
 }
 
+.article-image-only{ /* Apply to DIV tag, for image without description */
+    margin: 5ch 0;
+    width: fit-content;
+    align-self: center;
+    max-width: 100%;
+    border-radius: 4px;
+}
+
 .Articles-data{
     width: 100%;
     display: flex;
@@ -194,10 +202,19 @@ body{
     display: flex;
     align-items: center;
     border-bottom: 1px dotted rgb(128,128,128);
+    padding: 0.6ch 0;
 }
 
 .Articles-data > div{
     display: flex;
+    align-items: center;
+}
+
+.Articles-data img{
+    height: 5ch;
+    margin-right: 1.5ch;
+    border-radius: 100vw;
+    box-shadow: 0ch 0ch 1ch rgba(100, 100, 100, 0.5);
 }
 
 .Articles-data p{

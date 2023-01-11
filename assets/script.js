@@ -55,15 +55,15 @@ function COVEN_ASIDE_CONTENT(recursos_, articulos_){
 
     <ul>
         <li><a href="${resolveLink()}index.html">Página principal</a></li>
-        <li><a href="">Recursos</a></li>
+        <li><a href="${resolveLink()}recursos.html">Recursos</a></li>
             <ul>
             ${recursos_}
             </ul>
-        <li><a href="">Artículos</a></li>
+        <li><a href="${resolveLink()}articulos.html">Artículos</a></li>
             <ul>
             ${articulos_}
             </ul>
-        <li><a href="">About</a></li>
+        <li><a href="${resolveLink()}about.html">About</a></li>
             <ul>
             { setPages('Pilares') }
             </ul>
