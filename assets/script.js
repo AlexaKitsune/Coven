@@ -13,6 +13,7 @@ function COVEN_ASIDE_CONTENT(recursos_, articulos_){
     return `
     <p>El Aquelarre</p>
     <div class="SideMenu-Pentagram">
+        <a href="${resolveLink()}index.html">
         <span id="container-pentagram">
             <div class="symbol-external-circle">
                 <div class="symbol-internal-circle"></div>
@@ -49,6 +50,7 @@ function COVEN_ASIDE_CONTENT(recursos_, articulos_){
                 </div>
             </div>
         </span>
+        </a>
     </div>
 
     <hr>
