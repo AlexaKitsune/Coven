@@ -9,9 +9,175 @@
 
 <article class="coven-article">
     <h2>About</h2>
+
+    <section id="about-cards-section">
+        <a href="./about.html#about-target-cat">
+            <div>
+                <img src="./assets/images/el-gato-necesita-tener-acceso-al-exterior.jpg">
+                <div>
+                    <h4>cat</h4>
+                    <p>description</p>
+                </div>
+            </div>
+        </a>
+        <a href="./about.html#about-target-hyn">
+            <div>
+                <img src="./assets/images/640px-2011-Spotted_Hyena.jpg">
+                <div>
+                    <h4>hyena</h4>
+                    <p>description</p>
+                </div>
+            </div>
+        </a>
+        <a href="./about.html#about-target-cow">
+            <div>
+                <img src="./assets/images/la-historia-de-la-vaca_x2.jpg">
+                <div>
+                    <h4>cow</h4>
+                    <p>description</p>
+                </div>
+            </div>
+        </a>
+        <a href="./about.html#about-target-doe">
+            <div>
+                <img src="./assets/images/Venado-Cola-Blanca-_300px.jpg">
+                <div>
+                    <h4>doe</h4>
+                    <p>description</p>
+                </div>
+            </div>
+        </a>
+        <a href="./about.html#about-target-fox">
+            <div>
+                <img src="./assets/images/descarga.jfif">
+                <div>
+                    <h4>fox</h4>
+                    <p>description</p>
+                </div>
+            </div>
+        </a>
+    </section>
+
+    <br>
+
+    <h3 id="about-target-cat"><img src="./assets/images/el-gato-necesita-tener-acceso-al-exterior.jpg"><span>cat</span></h3>
+    <p>Descripción e información</p>
+
+    <h3 id="about-target-hyn"><img src="./assets/images/640px-2011-Spotted_Hyena.jpg"><span>hyena</span></h3>
+    <p>Descripción e información</p>
+
+    <h3 id="about-target-cow"><img src="./assets/images/la-historia-de-la-vaca_x2.jpg"><span>cow</span></h3>
+    <p>Descripción e información</p>
+
+    <h3 id="about-target-doe"><img src="./assets/images/Venado-Cola-Blanca-_300px.jpg"><span>doe</span></h3>
+    <p>Descripción e información</p>
+
+    <h3 id="about-target-fox"><img src="./assets/images/descarga.jfif"><span>fox</span></h3>
+    <p>Descripción e información</p>
+
+
 </article>
 
 </body>
 <script src="./assets/yip.js"></script>
 <script src="./assets/script.js"></script>
+<style>
+#about-cards-section{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-gap: 1ch;
+    justify-content: center;
+    align-self: center;
+    width: calc(100% - 2ch);
+}
+
+#about-cards-section > a{
+    box-shadow: 0px 0.5ch 5px rgba(10,10,10,0.33);
+    padding: 0 !important;
+}
+
+#about-cards-section > a:hover{
+    transform: translateY(-0.5ch);
+    box-shadow: 0px 0.8ch 8px rgba(10,10,10,0.33);
+    transition: all 0.2s;
+}
+
+#about-cards-section > a, #about-cards-section > a > div{
+    background-color: rgb(225,225,225);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: calc(100% - 0.5ch - 2vw);
+    height: 100%;
+    border-radius: 0.5ch;
+    color: black !important;
+    text-decoration: none;
+    transition: all 0.1s;
+}
+
+#about-cards-section > a > div{
+    padding: 1vw;
+}
+
+#about-cards-section > a > div > img{
+    width: calc(100% + 0.5ch);
+    border-radius: 0.5ch;
+    justify-self: flex-end;
+}
+
+#about-cards-section p{
+    font-size: 1.5ch;
+}
+
+#about-target-cat img,
+#about-target-hyn img,
+#about-target-cow img,
+#about-target-doe img,
+#about-target-fox img{
+    border-radius: 100vw;
+    width: 3.3ch;
+    height: 3.3ch;
+    margin-right: 1ch;
+    margin-bottom: -0.8ch;
+    margin-top: 1ch;
+}
+
+/*************************************************************************
+ * RESPONSIVE
+ *************************************************************************/
+ @media all and (max-width:666px){
+    #about-cards-section{
+        width: 100%;
+        grid-template-columns: 100%;
+        grid-gap: 2.8ch 0ch;
+    }
+
+    #about-cards-section > a > div{
+        padding: 1.5vw;
+        flex-direction: row;
+        height: fit-content;
+    }
+
+    #about-cards-section > a > div > div{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        width: 100%;
+        padding: 0 1ch;
+    }
+
+    #about-cards-section > a > div > div > *{
+        margin-top: 0;
+        margin-bottom: 0;
+        display: flex;
+        text-align: right;
+    } 
+
+    #about-cards-section > a > div  > img{
+        width: unset !important;
+        height: 8ch;
+    }
+ }
+</style>
 </html>

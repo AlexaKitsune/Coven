@@ -67,7 +67,11 @@ function COVEN_ASIDE_CONTENT(recursos_, articulos_){
             </ul>
         <li><a href="${resolveLink()}about.html">About</a></li>
             <ul>
-            { setPages('Pilares') }
+                <li><a href="${resolveLink()}about.html#about-target-cat">cat</a></li>
+                <li><a href="${resolveLink()}about.html#about-target-hyn">hyn</a></li>
+                <li><a href="${resolveLink()}about.html#about-target-cow">cow</a></li>
+                <li><a href="${resolveLink()}about.html#about-target-doe">doe</a></li>
+                <li><a href="${resolveLink()}about.html#about-target-fox">fox</a></li>
             </ul>
     </ul>
 
@@ -323,9 +327,7 @@ function setFacebookComments(section_){
     FacebookComments_div.setAttribute('data-numposts', '5');
     FacebookComments_div.setAttribute('data-colorscheme', 'dark');
     element('#Facebook-comments-section').appendChild(FacebookComments_div);
-
 }
-
 
 if(window.location.href.includes('/resources/')){
     setFacebookComments('resources');
