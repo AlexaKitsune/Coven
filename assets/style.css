@@ -25,6 +25,7 @@ h4{
 
 body{
     margin: 0 !important;
+    scroll-behavior: smooth;
 }
 
 /*#Aquelarre-MAIN*/ body{
