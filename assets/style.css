@@ -28,6 +28,10 @@ body{
     scroll-behavior: smooth;
 }
 
+*{
+    scroll-behavior: smooth !important;
+}
+
 /*#Aquelarre-MAIN*/ body{
     margin: 0 !important;
     min-height: 100vh;
