@@ -94,3 +94,11 @@ function newElement(tag_){
 
     return newElement_;
 }
+
+Object.prototype.valueByIndex = function(index_){
+    return Object.keys(this)[index_];
+}
+
+Object.prototype.keyByValue = function(value_){
+    return Object.keys(this).find(key => this[key] === value_);
+}
