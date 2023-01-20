@@ -227,6 +227,7 @@ function setCodeMirror(element_, editable_, language_){
 
     var content = document.getElementById(element_).innerHTML;
     document.getElementById(element_).innerHTML = "";
+    content = content.replaceAll('&gt;','>').replaceAll('&lt;','<');
     var readOnly_;
 
     if(editable_){

@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!--start codemirror-->
+        <link rel="stylesheet" href="../assets/codemirror/lib/codemirror.css">
+        <script src="../assets/codemirror/lib/codemirror.js"></script>
+        <script src="../assets/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+        <script src="../assets/codemirror/mode/xml/xml.js"></script>
+        <script src="../assets/codemirror/mode/javascript/javascript.js"></script>
+        <script src="../assets/codemirror/mode/css/css.js"></script>
+        <script src="../assets/codemirror/mode/python/python.js"></script>
+    <!--end codemirror-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
@@ -17,9 +26,54 @@
 
     <p>Puedes usarla añadiendo el siguiente script al inicio de tu archivo HTML:<br><br></p>
     
-    <span class="micro-code" id="yip-js-script">
-    
-    </span>
+    <span class="micro-code" id="yip-js-script"></span>
+
+    <!--Ejecutar -->
+    <h3>Ejecutar una función cuando el DOM haya cargado</h3>
+    <p>A veces Javascript ejecuta el código antes de que el DOM haya cargado, pero en ciertos momentos necesitamos que se ejecuten justo después de que haya cargado, para hacer cambios en un elemento por ejemplo.</p>
+    <p>Esto lo logramos con la función:</p>
+    <code id="yip_js_DOMready">
+DOMready();
+    </code>
+
+    <p>La cual recibe como único argumento aquella función que queremos ejecutar tras la carga del DOM. Ejemplo:</p>
+
+    <code id="yip_js_DOMready_example1">
+DOMready( alert("Hello World... until DOM is Ready") );
+
+DOMready(()=>{
+    console.log("DOM is ready");
+    let x = "World";
+    console.log("Hello " + x);
+});
+    </code>
+
+    <p>En la línea 1, ejecutamos un alert tras la carga del DOM. A partir de la línea 3, <span class="micro-code">DOMerady()</span> recibe una función anónima.</p>
+
+    <!--Selección de elementos-->
+    <h3>Seleccionar elementos</h3>
+    <p>Con Yip.js utilizamos la siguiente función para seleccionar un elemento:</p>
+    <code id="yip_js_element">
+element();
+    </code>
+    <p>La cual recibe como único parámetro el id o className de el elemento que queremos seleccionar. Por ejemplo:</p>
+
+    <code id="yip_js_element_example1">
+element('#myButton1');
+
+//Ejemplo de cómo emitir un alert al presionar un botón.
+element('#myButton2').onclick = function(){
+    alert("Click on 'myButton2' with element()");
+}
+    </code>
+
+    <p>
+        En la línea 1 vemos cómo se selecciona un botón con el id <span class="micro-code">myButton1</span>. <br>
+        En la línea 2, vemos cómo seleccionamos otro botón u lo utilizamos para emitir un alert:
+    </p>
+    <div class="htmlPlayground">
+        <button id="myButton2">#myButton2</button>
+    </div>
 
 </article>
 
@@ -29,5 +83,14 @@
 <script>
 element('#yip-js-script').innerHTML = `&lt;script src="${window.location.href.split('resources')[0]}assets/yip.js"&gt; &lt;/script&gt;
 <br>&lt;script src="https://raw.githubusercontent.com/AlexaKitsune/"&gt; &lt;/script&gt;`
+
+//Setting codemirrors:
+setCodeMirror("yip_js_DOMready", false, "javascript");
+setCodeMirror("yip_js_DOMready_example1", false, "javascript");
+setCodeMirror("yip_js_element", false, "javascript");
+setCodeMirror("yip_js_element_example1", false, "javascript");
+element('#myButton2').onclick = function(){
+    alert("Click on 'myButton2' with element()");
+}
 </script>
 </html>

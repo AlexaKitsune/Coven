@@ -261,9 +261,19 @@ body{
 }
 
 code{
+    margin-top: 2ch;
     margin-bottom: 4ch;
     overflow-x: auto;
     width: 100%;
+}
+
+.htmlPlayground{
+    margin: 1vw 0;
+}
+
+.htmlPlayground > *{
+    width: initial;
+    margin: 1ch;
 }
 
 .CodeMirror{
