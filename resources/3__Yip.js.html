@@ -30,7 +30,7 @@
 
     <!--Ejecutar -->
     <h3>Ejecutar una función cuando el DOM haya cargado</h3>
-    <p>A veces Javascript ejecuta el código antes de que el DOM haya cargado, pero en ciertos momentos necesitamos que se ejecuten justo después de que haya cargado, para hacer cambios en un elemento por ejemplo.</p>
+    <p>A veces Javascript ejecuta el código antes de que el DOM haya cargado, pero en ciertos momentos necesitamos que se ejecuten justo después de que haya cargado. Por ejemplo, para hacer cambios en un elemento.</p>
     <p>Esto lo logramos con la función:</p>
     <code id="yip_js_DOMready">
 DOMready();
@@ -56,7 +56,7 @@ DOMready(()=>{
     <code id="yip_js_element">
 element();
     </code>
-    <p>La cual recibe como único parámetro el id o className de el elemento que queremos seleccionar. Por ejemplo:</p>
+    <p>La cual recibe como único parámetro el id o la clase del elemento que queremos seleccionar. Por ejemplo:</p>
 
     <code id="yip_js_element_example1">
 element('#myButton1');
@@ -69,7 +69,7 @@ element('#myButton2').onclick = function(){
 
     <p>
         En la línea 1 vemos cómo se selecciona un botón con el id <span class="micro-code">myButton1</span>. <br>
-        En la línea 2, vemos cómo seleccionamos otro botón u lo utilizamos para emitir un alert:
+        En la línea 2, vemos cómo seleccionamos otro botón y lo utilizamos para emitir un alert:
     </p>
     <div class="htmlPlayground">
         <button id="myButton2">#myButton2</button>

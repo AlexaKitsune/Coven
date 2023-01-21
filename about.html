@@ -49,10 +49,10 @@
         </a>
         <a href="./about.html#about-target-fox">
             <div>
-                <img src="./assets/images/descarga.jfif">
+                <img class="profile_Fox">
                 <div>
-                    <h4>fox</h4>
-                    <p>description</p>
+                    <h4>Alexa</h4>
+                    <p>Desarrolladora, artista y Pilar del Zorro.</p>
                 </div>
             </div>
         </a>
@@ -60,22 +60,40 @@
 
     <br>
 
-    <h3 id="about-target-cat"><img src="./assets/images/el-gato-necesita-tener-acceso-al-exterior.jpg"><span>cat</span></h3>
-    <p>Descripción e información</p>
+    <p id="about-target-cat"></p>
+    <div class="totalDisplay">
+        <h3><img src="./assets/images/el-gato-necesita-tener-acceso-al-exterior.jpg"><span>cat</span></h3>
+        <p>Descripción e información</p>
+    </div>
 
-    <h3 id="about-target-hyn"><img src="./assets/images/640px-2011-Spotted_Hyena.jpg"><span>hyena</span></h3>
-    <p>Descripción e información</p>
+    <p id="about-target-hyn"></p>
+    <div class="totalDisplay">
+        <h3><img src="./assets/images/640px-2011-Spotted_Hyena.jpg"><span>hyena</span></h3>
+        <p>Descripción e información</p>
+    </div>
 
-    <h3 id="about-target-cow"><img src="./assets/images/la-historia-de-la-vaca_x2.jpg"><span>cow</span></h3>
-    <p>Descripción e información</p>
+    <p id="about-target-cow"></p>
+    <div class="totalDisplay">
+        <h3><img src="./assets/images/la-historia-de-la-vaca_x2.jpg"><span>cow</span></h3>
+        <p>Descripción e información</p>
+    </div>
 
-    <h3 id="about-target-doe"><img src="./assets/images/Venado-Cola-Blanca-_300px.jpg"><span>doe</span></h3>
-    <p>Descripción e información</p>
+    <p id="about-target-doe"></p>
+    <div class="totalDisplay">
+        <h3><img src="./assets/images/Venado-Cola-Blanca-_300px.jpg"><span>doe</span></h3>
+        <p>Descripción e información</p>
+    </div>
 
-    <h3 id="about-target-fox"><img src="./assets/images/descarga.jfif"><span>fox</span></h3>
-    <p>Descripción e información</p>
-
-
+    <p id="about-target-fox"></p>
+    <div class="totalDisplay">
+        <h3><img class="profile_Fox"><span>Alexa</span></h3>
+        <p>Hola, soy Ale. Desarrolladora de software y artista digital, entusiasta por la electrónica, la robótica y la física.</p>
+        <p>Pilar del Zorro en el Aquelarre; bruja maestra en el arte de la tecnomancia, erigiendo los dominios técnicos del Aquelarre hacia las profunidades de la eternidad electrónica.</p>
+        <p>Puedes seguirme en Twitter: <a href="https://twitter.com/10Ne_V">@10Ne_V</a></p>
+        <div class="center">
+            <blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">Now colorized.<br><br>This is the color pattern that she had when she was organic.<a href="https://twitter.com/hashtag/furry?src=hash&amp;ref_src=twsrc%5Etfw">#furry</a> <a href="https://twitter.com/hashtag/furryartwork?src=hash&amp;ref_src=twsrc%5Etfw">#furryartwork</a> <a href="https://t.co/1PftqD8eLM">pic.twitter.com/1PftqD8eLM</a></p>&mdash; アレクサ (@10Ne_V) <a href="https://twitter.com/10Ne_V/status/1420841516889686024?ref_src=twsrc%5Etfw">July 29, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+        </div>
+    </div>
 </article>
 
 </body>
@@ -129,17 +147,22 @@
     font-size: 1.5ch;
 }
 
-#about-target-cat img,
-#about-target-hyn img,
-#about-target-cow img,
-#about-target-doe img,
-#about-target-fox img{
+.totalDisplay > h3 img,
+.totalDisplay > h3 img,
+.totalDisplay > h3 img,
+.totalDisplay > h3 img,
+.totalDisplay > h3 img{
     border-radius: 100vw;
     width: 3.3ch;
     height: 3.3ch;
     margin-right: 1ch;
     margin-bottom: -0.8ch;
     margin-top: 1ch;
+}
+
+.totalDisplay{
+    height: fit-content;
+    min-height: calc(100vh - 6ch);
 }
 
 /*************************************************************************

@@ -84,8 +84,8 @@ function COVEN_NAV_CONTENT(){
     <p id="Aquelarre-Nav-Title">${element('title').innerHTML}</p>
     <div>
         <p id="Aquelarre-Sun-Moon-Switch" onclick="switchLightDark()">🌙</p>
-        <input type="text">
-        <button>🔎</button>
+        <!--<input type="text">
+        <button>🔎</button>-->
     </div>`;
 }
 
@@ -129,9 +129,11 @@ if(window.location.href.includes('/articles/')){
     nameSite = getKeyByValue(ARTICLES,nameSite);
     element('title').innerHTML = nameSite;
 }
-  
 
 console.log(getKeyByValue(ARTICLES,nameSite));
+
+//setting images:
+document.querySelectorAll('.profile_Fox').forEach(p => p.src = "https://scontent.flov1-1.fna.fbcdn.net/v/t39.30808-6/284835560_759931655383905_3298764770677221634_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_eui2=AeE8uH6ccHMOmm_Gs6wPhUUhMxa1VPJjRrozFrVU8mNGurI_4RFRJdVNxgeEkgLHnzY-Rg8Ly-AvG1amrJRejW2f&_nc_ohc=MZgxXQRm1_oAX9FX4_s&_nc_pt=1&_nc_ht=scontent.flov1-1.fna&oh=00_AfDboDg3LfD7tj2l-mG_xF1NqZPoQLdplfTIOaso2Z74Qg&oe=63D04204");
 
 //add style tag:
 let styleTag = document.createElement('link');
@@ -155,6 +157,15 @@ let covenNav = document.createElement('nav');
 covenNav.id = "coven-nav";
 covenNav.innerHTML = COVEN_NAV_CONTENT();
 document.getElementsByTagName("body")[0].prepend(covenNav);
+
+//add go to upside:
+let goUp= document.createElement('div');
+goUp.id = "goUpside";
+goUp.innerHTML = "⬆";
+document.getElementsByTagName("body")[0].append(goUp);
+goUp.onclick = function(){
+    window.scrollTo(0, 0);
+}
 
 //Switch light and dark mode:
 let illuminationMode = 'light';
