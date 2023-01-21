@@ -801,6 +801,7 @@ footer{
     .coven-article{
         padding: 0 2.5ch;
         padding-bottom: calc(2.5ch + 12vw + 2vw);
+        margin-top: -0.5ch;
     }
 
     #goUpside{
