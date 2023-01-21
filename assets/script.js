@@ -71,7 +71,7 @@ function COVEN_ASIDE_CONTENT(recursos_, articulos_){
                 <li><a href="${resolveLink()}about.html#about-target-hyn">hyn</a></li>
                 <li><a href="${resolveLink()}about.html#about-target-cow">cow</a></li>
                 <li><a href="${resolveLink()}about.html#about-target-doe">doe</a></li>
-                <li><a href="${resolveLink()}about.html#about-target-fox">fox</a></li>
+                <li><a href="${resolveLink()}about.html#about-target-fox">Alexa</a></li>
             </ul>
     </ul>
 
