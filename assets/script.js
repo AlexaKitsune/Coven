@@ -130,7 +130,7 @@ if(window.location.href.includes('/articles/')){
     element('title').innerHTML = nameSite;
 }
 
-console.log(getKeyByValue(ARTICLES,nameSite));
+/*console.log(getKeyByValue(ARTICLES,nameSite));*/
 
 //setting images:
 document.querySelectorAll('.profile_Fox').forEach(p => p.src = "https://scontent.flov1-1.fna.fbcdn.net/v/t39.30808-6/284835560_759931655383905_3298764770677221634_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_eui2=AeE8uH6ccHMOmm_Gs6wPhUUhMxa1VPJjRrozFrVU8mNGurI_4RFRJdVNxgeEkgLHnzY-Rg8Ly-AvG1amrJRejW2f&_nc_ohc=MZgxXQRm1_oAX9FX4_s&_nc_pt=1&_nc_ht=scontent.flov1-1.fna&oh=00_AfDboDg3LfD7tj2l-mG_xF1NqZPoQLdplfTIOaso2Z74Qg&oe=63D04204");
@@ -157,6 +157,23 @@ let covenNav = document.createElement('nav');
 covenNav.id = "coven-nav";
 covenNav.innerHTML = COVEN_NAV_CONTENT();
 document.getElementsByTagName("body")[0].prepend(covenNav);
+
+//Fixing routing:
+
+DOMready(()=>{
+    window.scrollTo(0, 0);
+    if(window.location.href.includes("#about-target-cat"))
+        setTimeout(()=>{window.location = '#about-target-cat' },100);
+    if(window.location.href.includes("#about-target-hyn"))
+        setTimeout(()=>{window.location = '#about-target-hyn' },100);
+    if(window.location.href.includes("#about-target-cow"))
+        setTimeout(()=>{window.location = '#about-target-cow' },100);
+    if(window.location.href.includes("#about-target-doe"))
+        setTimeout(()=>{window.location = '#about-target-doe' },100);
+    if(window.location.href.includes("#about-target-fox"))
+        setTimeout(()=>{window.location = '#about-target-fox' },100);
+});
+
 
 //add go to upside:
 let goUp= document.createElement('div');
