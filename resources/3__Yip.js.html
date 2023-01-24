@@ -36,11 +36,12 @@
 DOMready();
     </code>
 
-    <p>La cual recibe como único argumento aquella función que queremos ejecutar tras la carga del DOM. Ejemplo:</p>
+    <p>La cual recibe como único argumento aquella función que queremos ejecutar tras la carga del DOM. Ejemplos:</p>
 
     <code id="yip_js_DOMready_example1">
 DOMready( alert("Hello World... until DOM is Ready") );
 
+//Ejemplo recibiendo una función anónima:
 DOMready(()=>{
     console.log("DOM is ready");
     let x = "World";
@@ -48,7 +49,7 @@ DOMready(()=>{
 });
     </code>
 
-    <p>En la línea 1, ejecutamos un alert tras la carga del DOM. A partir de la línea 3, <span class="micro-code">DOMerady()</span> recibe una función anónima.</p>
+    <p>En la línea 1, ejecutamos un alert tras la carga del DOM. A partir de la línea 4, <span class="micro-code">DOMerady()</span> recibe una función anónima.</p>
 
     <!--Selección de elementos-->
     <h3>Seleccionar elementos</h3>
@@ -69,10 +70,93 @@ element('#myButton2').onclick = function(){
 
     <p>
         En la línea 1 vemos cómo se selecciona un botón con el id <span class="micro-code">myButton1</span>. <br>
-        En la línea 2, vemos cómo seleccionamos otro botón y lo utilizamos para emitir un alert:
+        En la línea 4, vemos cómo seleccionamos otro botón y lo utilizamos para emitir un alert:
     </p>
     <div class="htmlPlayground">
         <button id="myButton2">#myButton2</button>
+    </div>
+
+    <!--Estilizar un elemento-->
+    <h3>Estilizar un elemento</h3>
+    <p>Esto podemos reaizarlo con la siguiente función:</p>
+    <code id="yip_js_stylize">
+stylize();
+    </code>
+    <p>El cual recibe como único parámetro el id o la clase de un elemento. A tal elemento se le aplica un método para seleccionar un estilo.<br>
+        Aquí vemos algunos ejemplos:
+    </p>
+    <code id="yip_js_stylize_example1">
+stylize("#myButton3").color = "#FF0000";
+stylize("#myButton3").borderRadius = "10ch";
+
+stylize(".myInput1").backgroundColor = "yellow";
+stylize(".myInput1").fontFamily = "monospace";
+    </code>
+    <div class="htmlPlayground">
+        <button id="myButton3">#myButton3</button>
+        <input type="text" class="myInput1" placeholder=".myInput1">
+    </div>
+
+    <!--Ejecutar una función en intervalos de tiempo-->
+    <h3>Ejecutar una función en intervalos de tiempo</h3>
+    <p>
+        Con la siguiente función podemos ejecutar otra función una determinada cantidad de veces, en lapsos definidos en milisegundos. Esta función guarda similitudes con <span class="micro-code">setInterval()</span>, pero puede pensarse como un <i>for</i>, en el que cada iteración ocurre entre determinado lapso.<br>
+    </p>
+    <p>La función se escribe de la siguiente forma:</p>
+    <code id="yip_js_timeStepper">
+timeStepper(miliseconds_, steps_, function_);
+    </code>
+    <p>Esta función recibe los siguientes parámetros:</p>
+    <ul>
+        <li>miliseconds_ : El intervalo de tiempo entre la ejecución de cada iteración, especificado en milisegundos.</li>
+        <li>steps_ : La cantidad de pasos totales ("iteraciones") a ejecutar. Al momento de ser ejecutada, este número aumentará internamente desde 0 hasta steps.</li>
+        <li>function_ : Una función anónima que será ejecutada.</li>
+    </ul>
+    <p>Aquí vemos un ejemplo:</p>
+    <code id="yip_js_timeStepper_example1">
+timeStepper(750, 10, ()=>{
+    element("#myButton4").innerHTML += " HelloWorld ";
+});
+    </code>
+    <p>En este ejemplo, el texto dentro de un botón es repetida 10 veces en intervalos de 750ms. <br>Haz click en el botón para ejecutar la función:</p>
+    <div class="htmlPlayground">
+        <button id="myButton4" style="display:flex; flex-direction:column;">#myButton4</button>
+    </div>
+
+    <p>Aquí hay otro ejemplo utilizando una variable externa:</p>
+    <code id="yip_js_timeStepper_example2">
+let a = 0;
+timeStepper(987, 10, ()=>{
+    element("#myButton5").innerHTML = "El valor de 'a' es: " + a;
+    a += 1;
+});
+    </code>
+    <p>Haz click en el botón para ejecutar la función:</p>
+    <div class="htmlPlayground">
+        <button id="myButton5" style="display:flex; flex-direction:column;">#myButton5</button>
+    </div>
+
+    <!--Fecha y hora-->
+    <h3>Fecha y hora</h3>
+    <p>Hemos escrito una serie de funciones que facilitan la obtención de la fecha y la hora, siendo las siguientes:</p>
+    <code id="yip_js_yipGetDate">
+Second();
+Minute();
+Hour();
+Day();
+Month();
+Year();
+Century();
+Millennium();
+    </code>
+    <p>Estas funciones devuelven la fecha o la hora que transcurre en el momento en que son invocadas. No reciben ningún parámetro.</p>
+    <p>Un ejemplo de su aplicación es el siguiente:</p>
+    <code id="yip_js_yipGetDate_example1">
+element("#myButton6").innerHTML = `La hora es: ${Hour()} horas con ${Minute()} minutos y ${Second()} segundos.`;     
+    </code>
+    <p>Haz click en el botón para ejecutar la función. Nota cómo cambian los minutos y segundos en el texto sólo al dar click, pues estos se devuelven justo cuando la función es ejecutada.</p>
+    <div class="htmlPlayground">
+        <button id="myButton6" style="display:flex; flex-direction:column;">#myButton6</button>
     </div>
 
 </article>
@@ -82,15 +166,45 @@ element('#myButton2').onclick = function(){
 <script src="../assets/script.js"></script>
 <script>
 element('#yip-js-script').innerHTML = `&lt;script src="${window.location.href.split('resources')[0]}assets/yip.js"&gt; &lt;/script&gt;
-<br>&lt;script src="https://raw.githubusercontent.com/AlexaKitsune/"&gt; &lt;/script&gt;`
+<br>&lt;script src="https://raw.githubusercontent.com/AlexaKitsune/Coven/gh-pages/assets/yip.js"&gt; &lt;/script&gt;`
 
 //Setting codemirrors:
 setCodeMirror("yip_js_DOMready", false, "javascript");
 setCodeMirror("yip_js_DOMready_example1", false, "javascript");
 setCodeMirror("yip_js_element", false, "javascript");
 setCodeMirror("yip_js_element_example1", false, "javascript");
-element('#myButton2').onclick = function(){
-    alert("Click on 'myButton2' with element()");
-}
+    element('#myButton2').onclick = function(){
+        alert("Click on 'myButton2' with element()");
+    }
+setCodeMirror("yip_js_stylize", false, "javascript");
+setCodeMirror("yip_js_stylize_example1", false, "javascript");
+    stylize("#myButton3").color = "#FF0000";
+    stylize("#myButton3").borderRadius = "10ch";
+    stylize(".myInput1").backgroundColor = "yellow";
+    stylize(".myInput1").fontFamily = "monospace";
+setCodeMirror("yip_js_timeStepper", false, "javascript");
+setCodeMirror("yip_js_timeStepper_example1", false, "javascript");
+    clicked("#myButton4", ()=>{
+        element("#myButton4").innerHTML = "";
+        timeStepper(750, 10, ()=>{
+            element("#myButton4").innerHTML += " HelloWorld ";
+        });
+    })
+setCodeMirror("yip_js_timeStepper_example2", false, "javascript");
+    let a = 0;
+    clicked("#myButton5", ()=>{
+        element("#myButton5").innerHTML = "";
+        timeStepper(987, 10, ()=>{
+            element("#myButton5").innerHTML = "El valor de 'a' es: " + a;
+            a += 1;
+        });
+    })
+setCodeMirror("yip_js_yipGetDate", false, "javascript");
+setCodeMirror("yip_js_yipGetDate_example1", false, "javascript");
+    clicked("#myButton6", ()=>{
+        element("#myButton6").innerHTML = `La hora es: ${Hour()} horas con ${Minute()} minutos y ${Second()} segundos.`;   
+    })
+
+  
 </script>
 </html>

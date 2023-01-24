@@ -225,13 +225,14 @@ body{
 
 .coven-article a{
     color: #8ab4f8;
+    margin-top: 1ch;
 }
 
 .center{
     width: 100%;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    justify-content: center;
     margin: 2ch 0;
 }
 

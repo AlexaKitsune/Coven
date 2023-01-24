@@ -6,7 +6,7 @@ function element(element_){
     return document.querySelector(element_)
 }
 
-function elements(element_){
+function elements(element_){ //Omit in doc.
     return document.querySelectorAll(element_)
 }
 
@@ -30,15 +30,14 @@ function timeStepper(mili_seconds_, steps_, function_) {
     }    
 }
 
-const YipGetDate = new Date();
-const Second = YipGetDate.getSeconds();
-const Minute = YipGetDate.getMinutes();
-const Hour = YipGetDate.getHours();
-const Day = YipGetDate.getDate();
-const Month = YipGetDate.getMonth();
-const Year = YipGetDate.getFullYear();
-const Century = Year < 100 ? 1 : parseInt(String(Year).slice(0,-2))+1;
-const Millennium = Math.floor(parseInt(Century) / 1000);
+const Second = ()=> new Date().getSeconds();
+const Minute = ()=> new Date().getMinutes();
+const Hour = ()=> new Date().getHours();
+const Day = ()=> new Date().getDate();
+const Month = ()=> new Date().getMonth();
+const Year = ()=> new Date().getFullYear();
+const Century = ()=> Year() < 100 ? 1 : parseInt(String(Year()).slice(0,-2))+1;
+const Millennium = ()=> Math.floor(parseInt(Century()) / 10);
 
 function clicked(element_, function_){
     element(element_).onclick = function_;

@@ -40,7 +40,7 @@
         </a>
         <a href="./about.html#about-target-doe">
             <div>
-                <img src="./assets/images/Venado-Cola-Blanca-_300px.jpg">
+                <img class="profile_Doe">
                 <div>
                     <h4>doe</h4>
                     <p>description</p>
@@ -80,7 +80,7 @@
 
     <p id="about-target-doe"></p>
     <div class="totalDisplay">
-        <h3><img src="./assets/images/Venado-Cola-Blanca-_300px.jpg"><span>doe</span></h3>
+        <h3><img class="profile_Doe"><span>doe</span></h3>
         <p>A lo largo de la historia, he tenido muchos nombres. pero actualmente me dicen Samantha. Cocinera por amor, videojugadora desde los inicios de los mismos, soy una muchacha que le gusta viajar y aprender.</p>
         <p>Actualmente lider del Aquelarre, busco llevar al mundo las cosas que he aprendido, aunque ocasionalmente eso nos lleve a lugares lejanos y con personas desconocidas. </p>
         <p>Puedes encontrarme en Facebook y Discord así:</p>
@@ -94,6 +94,12 @@
                 <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg" style="width: 2.6ch; margin-right:1ch;">venadaverde#6474
             </a>
         </p>
+        <div class="center" style="flex-direction:row;">
+            <img src="https://pbs.twimg.com/media/FaKu2S5WYAEueou?format=jpg&name=large" class="about-doe-img1"
+            onclick="activateViewer(`https://pbs.twimg.com/media/FaKu2S5WYAEueou?format=jpg&name=large`)">
+            <img src="https://pbs.twimg.com/media/FaKu28lXgAEexme?format=jpg&name=large" class="about-doe-img2"
+            onclick="activateViewer(`https://pbs.twimg.com/media/FaKu28lXgAEexme?format=jpg&name=large`)">
+        </div>
     </div>
 
     <p id="about-target-fox"></p>
@@ -105,6 +111,11 @@
         <div class="center">
             <blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">Now colorized.<br><br>This is the color pattern that she had when she was organic.<a href="https://twitter.com/hashtag/furry?src=hash&amp;ref_src=twsrc%5Etfw">#furry</a> <a href="https://twitter.com/hashtag/furryartwork?src=hash&amp;ref_src=twsrc%5Etfw">#furryartwork</a> <a href="https://t.co/1PftqD8eLM">pic.twitter.com/1PftqD8eLM</a></p>&mdash; アレクサ (@10Ne_V) <a href="https://twitter.com/10Ne_V/status/1420841516889686024?ref_src=twsrc%5Etfw">July 29, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
         </div>
+    </div>
+
+    <div id="about-image-viewer">
+        <img id="about-image-to-view">
+        <div id="about-image-viewer-bg"></div>
     </div>
 </article>
 
@@ -177,6 +188,54 @@
     min-height: calc(100vh - 6ch);
 }
 
+/* doe */
+.about-doe-img1{
+ width: 25vw;
+ clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
+ margin-right: calc(-25vw / 2);
+}
+
+.about-doe-img2{
+ width: 25vw;
+ clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
+ margin-left: calc(-25vw / 2);
+}
+
+/* image viewer */
+#about-image-viewer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    display: none;
+}
+
+#about-image-viewer-bg{
+    background-color: rgba(10,10,10,0.33);
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px);
+}
+
+#about-image-to-view{
+    display: flex;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    max-width: 85vw;
+    max-height: 85vh;
+}
+
 /*************************************************************************
  * RESPONSIVE
  *************************************************************************/
@@ -213,6 +272,30 @@
         width: unset !important;
         height: 8ch;
     }
+
+    /* doe */
+    .about-doe-img1{
+        margin-top: 2ch;
+        width: 65vw;
+        margin-right: calc(-65vw / 2);
+    }
+
+    .about-doe-img2{
+        margin-top: 2ch;
+        width: 65vw;
+        margin-left: calc(-65vw / 2);
+    }
  }
 </style>
+<script>
+function activateViewer(src_){
+    element("#about-image-to-view").src = src_;
+    stylize('#about-image-viewer').display = "flex";
+}
+
+clicked('#about-image-viewer-bg', ()=>{
+    stylize('#about-image-viewer').display = "none";
+    element("#about-image-to-view").src = "";
+});
+</script>
 </html>
