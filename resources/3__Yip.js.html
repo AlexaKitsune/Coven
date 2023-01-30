@@ -21,12 +21,13 @@
     <h2>Yip.js - Librería de Javascript del Aquelarre</h2>
 
     <p>
-        El Aquelarre está construido utilizando sus propias bases de cógido. Una de ellas es <strong>Alexa.js</strong>, una librería creada para facilitar la programación y el desarrollo de aplicaciones web.
+        El Aquelarre está construido utilizando sus propias bases de código. Una de ellas es <strong>Alexa.js</strong>, una librería creada para facilitar la programación y el desarrollo de aplicaciones web.
     </p>
 
     <p>Puedes usarla añadiendo el siguiente script al inicio de tu archivo HTML:<br><br></p>
-    
     <span class="micro-code" id="yip-js-script"></span>
+    <p><br>Si usas Vue.js, agrega el siguiente código al inicio del método mounted():<br><br></p>
+    <span class="micro-code" id="yip-js-script-vue"></span>
 
     <!--Ejecutar -->
     <h3>Ejecutar una función cuando el DOM haya cargado</h3>
@@ -162,11 +163,18 @@ element("#myButton6").innerHTML = `La hora es: ${Hour()} horas con ${Minute()} m
 </article>
 
 </body>
-<script src="../assets/yip.js"></script>
+<script src="../yip.js"></script>
 <script src="../assets/script.js"></script>
 <script>
-element('#yip-js-script').innerHTML = `&lt;script src="${window.location.href.split('resources')[0]}assets/yip.js"&gt; &lt;/script&gt;
-<br>&lt;script src="https://raw.githubusercontent.com/AlexaKitsune/Coven/gh-pages/assets/yip.js"&gt; &lt;/script&gt;`
+element('#yip-js-script').innerHTML = `&lt;script src="${window.location.href.split('resources')[0]}yip.js"&gt; &lt;/script&gt;<br>
+&lt;script&gt;
+    window.SummonCoven || document.write('&lt;script src="https://alexakitsune.github.io/Coven/yip.js"&gt;\\x3C/script&gt;');
+&lt;/script&gt;`;
+element('#yip-js-script-vue').innerHTML = `if (document.getElementById('coven-script')) return;<br>
+var CovenScript = document.createElement("script");<br>
+CovenScript.src = "https://alexakitsune.github.io/Coven/yip.js";<br>
+CovenScript.id = "coven-script";<br>
+document.getElementsByTagName('head')[0].appendChild(CovenScript); `;
 
 //Setting codemirrors:
 setCodeMirror("yip_js_DOMready", false, "javascript");

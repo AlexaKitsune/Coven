@@ -22,7 +22,7 @@
     <h2>Editor de código Javascript en línea</h2>
 
     <p>Este editor de Javascript online está diseñado para ayudar a asistir y resolver algunos problemas de código de manera sencilla y en cualquier lugar, desde la consola de este navegador.</p>
-    <p>⚠️ Este editor se encuentra en desarrollo y algunas respuestas podrían ser inestables. Por favor, use <span class="micro-code">display()</span> en lugar de <span class="micro-code">console.log()</span>.</p>
+    <!--<p>⚠️ Este editor se encuentra en desarrollo y algunas respuestas podrían ser inestables. Por favor, use <span class="micro-code">display()</span> en lugar de <span class="micro-code">console.log()</span>.</p>-->
 
     <code style="margin-top:5ch;">
         <textarea id="resourceEditorHTML-CSS-JS_textarea"></textarea>
@@ -33,26 +33,41 @@
 </article>
 
 </body>
-<script src="../assets/yip.js"></script>
+<script src="../yip.js"></script>
 <script src="../assets/script.js"></script>
 <script>
-    function display(x){return x};
+  
+    let COVEN_DISPLAYS = [];
+   
+    function display(x){
+        return x;
+    }
+    function addToCovenDisplays(x){
+        COVEN_DISPLAYS.push(x);
+    };
+
     let editor1 = new setEditorCodeMirror('resourceEditorHTML-CSS-JS_textarea');
     editor1.setEditor();
     setInterval(() => {
+
+        COVEN_DISPLAYS = [];
     
         var getCode = editor1.getCode();
         let processedCode = display(`\n ${getCode} \n`);;
     
         try{
-            element('#resourceEditorHTML-CSS-JS_div').innerHTML = "🦊>> " + eval(processedCode
-                .replace('console.log','display')
+            element('#resourceEditorHTML-CSS-JS_div').innerHTML = "🦊>> " + eval(`${processedCode.replaceAll('console.log','addToCovenDisplays')}`
+                 + `
+                //console.log(COVEN_DISPLAYS);
+                display( COVEN_DISPLAYS.join("COVENJSLINEBREAK") );
+                `
             );
+            element('#resourceEditorHTML-CSS-JS_div').innerHTML =  element('#resourceEditorHTML-CSS-JS_div').innerHTML.replaceAll("COVENJSLINEBREAK","<br>🦊>> ")
         } catch(error){
             element('#resourceEditorHTML-CSS-JS_div').innerHTML = "🦊>> Sowwy, " + error + " UnU";
             //console.error("Sowwy, my dev friend. Code failed. Look at this: "+ error + " UnU");
         }
-    }, 3000);
+    }, 2000);
     
 </script>
 <style>
@@ -68,6 +83,8 @@
         background-color: black;
         border-radius: 1ch;
         min-height: 5ch;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1.4ch;
     }
     </style>
 </html>

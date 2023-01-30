@@ -1,3 +1,5 @@
+Window.prototype.SummonCoven = ()=> true;
+
 function DOMready(function_){
     document.addEventListener("DOMContentLoaded", function_);
 }
@@ -438,3 +440,4 @@ Object.prototype.valueByIndex = function(index_){
 Object.prototype.keyByValue = function(value_){
     return Object.keys(this).find(key => this[key] === value_);
 }*/
+
