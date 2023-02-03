@@ -1,3 +1,5 @@
+/** @author Alexa N <alexa.nc.kitsune@gmail.com> */
+
 Window.prototype.SummonCoven =()=> true;
 
 const DOMready =(function_)=> document.addEventListener("DOMContentLoaded", function_);
@@ -17,12 +19,12 @@ const Year =()=> new Date().getFullYear();
 const Century =()=> Year() < 100 ? 1 : parseInt(String(Year()).slice(0,-2))+1;
 const Millennium =()=> Math.floor(parseInt(Century()) / 10);
 
-function timeStepper(mili_seconds_, steps_, function_) {
+function timeStepper(mili_seconds_, steps_, function_){
     let interval = 0;
     for(let i=0; i< steps_; i++){
         interval += mili_seconds_;
         setTimeout(function_, interval);
-    }    
+    }
 }
 
 function withEnterTriggerClick(element_, button_){
@@ -332,18 +334,17 @@ function transliterate(lang_, number_){
 }
 
 class circleChart{
-    constructor(id_, inputType_ ,percentages_){
+    constructor(id_, inputType_){
         this.id_ = id_;
         this.inputType_ = inputType_;
-        this.percentages_ = percentages_;
     }
 
-    createPercentages(gap_){
+    createPercentages(gap_, percentages_){
         let totalPercent = 0;
         let originalPercent = [];
-        for(x in this.percentages_){
-            totalPercent += parseFloat(Object.keys(this.percentages_[x])[0]);
-            originalPercent.push(parseFloat(Object.keys(this.percentages_[x])[0]));
+        for(x in percentages_){
+            totalPercent += parseFloat(Object.keys(percentages_[x])[0]);
+            originalPercent.push(parseFloat(Object.keys(percentages_[x])[0]));
         }
 
         let percentToDeg = [];
@@ -359,7 +360,7 @@ class circleChart{
         let currentDeg = 0;
         let result = "";
         for(let x = 0; x < percentToDeg.length; x++){
-            result += `${this.percentages_[x][Object.keys(this.percentages_[x])]} ${currentDeg}deg ${percentToDeg[x]+currentDeg}deg,`
+            result += `${percentages_[x][Object.keys(percentages_[x])]} ${currentDeg}deg ${percentToDeg[x]+currentDeg}deg,`
                    + `\ntransparent ${percentToDeg[x]+currentDeg}deg ${(percentToDeg[x]+currentDeg)+gap_}deg,\n`;
             currentDeg = percentToDeg[x]+currentDeg;
         }
@@ -381,7 +382,7 @@ class circleChart{
         return `polygon(100% 50%, 100% 100%, 0 100%, 0 0, 100% 0, 100% 50%, ${c.join(',')})`;
     }
 
-    createChart(size_, internalCircleSize_, gap_){
+    createChart(size_, internalCircleSize_, gap_, percentages_){
         let graphic = newElement(`<div id="${this.id_}"></div>`);
         graphic.setAttribute('style',`
             display: flex;
@@ -392,36 +393,43 @@ class circleChart{
             height: ${size_};
             border-radius: 1000vw;
             background-color: red;
-            background: ${this.createPercentages(gap_)};
-            clip-path: ${this.holeChart(internalCircleSize_)}
+            background: ${this.createPercentages(gap_, percentages_)};
+            clip-path: ${this.holeChart(internalCircleSize_)};
         `);
 
         return graphic;
     }
 
-    drawChart(size_, internalCircleSize_, gap_=0, appendInto_=false){
+    drawChart(size_, internalCircleSize_, percentages_, gap_=0, appendInto_=false){
+        try {
+            element(`#${this.id_}`).remove();  
+        } catch (error) { error }
         if(appendInto_)
             element(appendInto_).appendChild(
-                this.createChart(size_, internalCircleSize_, gap_)
+                this.createChart(size_, internalCircleSize_, gap_, percentages_)
             );
         else
             document.body.appendChild(
-                this.createChart(size_, internalCircleSize_, gap_)
+                this.createChart(size_, internalCircleSize_, gap_, percentages_)
             );
     }
-
 }
 
-/* //Cause conflict with ".join()":
-Object.prototype.valueByIndex = function(index_){
-    return Object.keys(this)[index_];
+const keyByIndex =(object_, index_)=> Object.keys(object_)[index_];
+const valueByIndex =(object_, index_)=> object_[Object.keys(object_)[index_]];
+const keyByValue =(object_, value_)=> Object.keys(object_).find(key => object_[key] === value_);
+
+function range(start_, end_, steps_=1){
+    let rangeArray = [];
+    for(x=start_; x<=end_; x+=steps_)
+        rangeArray.push(x);
+    return rangeArray;
 }
-Object.prototype.keyByValue = function(value_){
-    return Object.keys(this).find(key => this[key] === value_);
-}*/
+
+const getInnerHTML =(element_)=> element(element_).innerHTML;
 
 try {
     module.exports = {
-        DOMready, element, elements, stylize, rewriteCSS, stackCSS, clicked, Second, Minute, Hour, Day, Month, Year, Century, Millennium, timeStepper, withEnterTriggerClick, withKeyTriggerFunction, newElement, connectorLine, SpanishTransliterate, KanjiTransliterate, transliterate, circleChart
+        DOMready, element, elements, stylize, rewriteCSS, stackCSS, clicked, Second, Minute, Hour, Day, Month, Year, Century, Millennium, timeStepper, withEnterTriggerClick, withKeyTriggerFunction, newElement, connectorLine, SpanishTransliterate, KanjiTransliterate, transliterate, circleChart, keyByIndex, valueByIndex, keyByValue, range, getInnerHTML
     }; 
-} catch (error) { }
+} catch (error) { error }

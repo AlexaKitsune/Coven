@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!--start codemirror-->
+    <!-- #region codemirror -->
         <link rel="stylesheet" href="../assets/codemirror/lib/codemirror.css">
         <script src="../assets/codemirror/lib/codemirror.js"></script>
         <script src="../assets/codemirror/mode/htmlmixed/htmlmixed.js"></script>
@@ -9,7 +9,7 @@
         <script src="../assets/codemirror/mode/javascript/javascript.js"></script>
         <script src="../assets/codemirror/mode/css/css.js"></script>
         <script src="../assets/codemirror/mode/python/python.js"></script>
-    <!--end codemirror-->
+    <!-- #endregion  codemirror -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
@@ -26,10 +26,12 @@
 
     <p>Puedes usarla añadiendo el siguiente script al inicio de tu archivo HTML:<br><br></p>
     <span class="micro-code" id="yip-js-script"></span>
-    <p><br>Si usas Vue.js, agrega el siguiente código al inicio del método mounted():<br><br></p>
-    <span class="micro-code" id="yip-js-script-vue"></span>
+    <p><br>También puedes instalarlo en Node.js con el comando:<br><br></p>
+    <span class="micro-code">npm i aquelarre-yip</span>
+    <p><br>Recomendamos importarlo de la siguiente forma (probado en Vue.js):<br><br></p>
+    <span class="micro-code">import yip from "aquelarre-yip";</span>
 
-    <!--Ejecutar -->
+    <!-- #region Ejecutar -->
     <h3>Ejecutar una función cuando el DOM haya cargado</h3>
     <p>A veces Javascript ejecuta el código antes de que el DOM haya cargado, pero en ciertos momentos necesitamos que se ejecuten justo después de que haya cargado. Por ejemplo, para hacer cambios en un elemento.</p>
     <p>Esto lo logramos con la función:</p>
@@ -51,8 +53,9 @@ DOMready(()=>{
     </code>
 
     <p>En la línea 1, ejecutamos un alert tras la carga del DOM. A partir de la línea 4, <span class="micro-code">DOMerady()</span> recibe una función anónima.</p>
+    <!-- #endregion -->
 
-    <!--Selección de elementos-->
+    <!-- #region Selección de elementos-->
     <h3>Seleccionar elementos</h3>
     <p>Con Yip.js utilizamos la siguiente función para seleccionar un elemento:</p>
     <code id="yip_js_element">
@@ -76,8 +79,9 @@ element('#myButton2').onclick = function(){
     <div class="htmlPlayground">
         <button id="myButton2">#myButton2</button>
     </div>
+    <!-- endregion -->
 
-    <!--Estilizar un elemento-->
+    <!-- #region Estilizar un elemento-->
     <h3>Estilizar un elemento</h3>
     <p>Esto podemos reaizarlo con la siguiente función:</p>
     <code id="yip_js_stylize">
@@ -97,8 +101,9 @@ stylize(".myInput1").fontFamily = "monospace";
         <button id="myButton3">#myButton3</button>
         <input type="text" class="myInput1" placeholder=".myInput1">
     </div>
+    <!-- #endregion -->
 
-    <!--Ejecutar una función en intervalos de tiempo-->
+    <!-- #region Ejecutar una función en intervalos de tiempo-->
     <h3>Ejecutar una función en intervalos de tiempo</h3>
     <p>
         Con la siguiente función podemos ejecutar otra función una determinada cantidad de veces, en lapsos definidos en milisegundos. Esta función guarda similitudes con <span class="micro-code">setInterval()</span>, pero puede pensarse como un <i>for</i>, en el que cada iteración ocurre entre determinado lapso.<br>
@@ -136,8 +141,29 @@ timeStepper(987, 10, ()=>{
     <div class="htmlPlayground">
         <button id="myButton5" style="display:flex; flex-direction:column;">#myButton5</button>
     </div>
+    <!-- #endregion -->
 
-    <!--Fecha y hora-->
+    <!-- #region click -->
+    <h3>Click</h3>
+    <p>Podemos ejecutar una función o una pieza de código al hacer click en un elemento de forma sencilla con la función:</p>
+    <code id="yip_js_clicked">
+clicked(element_, function_);
+    </code>
+    <p>Esta función recibe los siguientes parámetros:</p>
+    <ul>
+        <li>element_: El elemento donde se hará click.</li>
+        <li>function_: La función que será ejecutada.</li>
+    </ul>
+    <p>Ejemplo:</p>
+    <code id="yip_js_clicked_example1">
+clicked('#clickMe', ()=>{ alert("It works") });
+    </code>
+    <div class="htmlplaygound">
+        <button id="clickMe">#clickMe</button>
+    </div>
+    <!-- #endregion -->
+
+    <!-- #region Fecha y hora-->
     <h3>Fecha y hora</h3>
     <p>Hemos escrito una serie de funciones que facilitan la obtención de la fecha y la hora, siendo las siguientes:</p>
     <code id="yip_js_yipGetDate">
@@ -159,22 +185,57 @@ element("#myButton6").innerHTML = `La hora es: ${Hour()} horas con ${Minute()} m
     <div class="htmlPlayground">
         <button id="myButton6" style="display:flex; flex-direction:column;">#myButton6</button>
     </div>
+    <!-- #endregion -->
+
+    <!-- #region with Enter Trigger Click-->
+    <h3>Simular click con tecla Enter</h3>
+    <p>Podemos simular un click en determinado elemento al pulsar la tecla Enter.<br>
+    Para ello, utilizamos la siguiente función:</p>
+    <code id="yip_js_withEnterTriggerClick">
+withEnterTriggerClick(element_, button_);
+    </code>
+    <p>La cual recibe los siguientes parámetros:</p>
+    <ul>
+        <li>element_: El elemento (preferentemente un input como una caja de texto) el cual detectará la tecla Enter.</li>
+        <li>button_: El elemento en el cual será simulado el click.</li>
+    </ul>
+    <p>Ejemplo:</p>
+    <code id="yip_js_withEnterTriggerClick_example1">
+&lt;input type="text" id="myInput1"/&gt;
+&lt;button id="myButton7"&gt;&lt;/button&gt;
+
+&lt;script&gt;
+
+    clicked('#myButton7', ()=>{alert('It works')});
+    withEnterTriggerClick('#myInput1', '#myButton7');
+
+&lt;/script&gt;
+    </code>
+    <p>
+        Prueba con hacer click en el siguiente botón. De acuerdo a la línea 6, se debería ejecutar un alert.</p>
+        <p>Después prueba con escribir cualquier cosa en la caja de texto. Al presionar la tecla Enter, ocurrirá lo mismo que si hubieses hecho click en el botón.<br>Esto queda ejecutado con la línea 7.
+    </p>
+    <div class="htmlPlayground">
+        <input type="text" placeholder="#myInput1" id="myInput1">
+        <button id="myButton7">#myButton7</button>
+    </div>
+    <!-- #endregion -->
 
 </article>
 
 </body>
-<script src="../yip.js"></script>
+<script src="../aquelarre-yip/src/yip.js"></script>
 <script src="../assets/script.js"></script>
 <script>
-element('#yip-js-script').innerHTML = `&lt;script src="${window.location.href.split('resources')[0]}yip.js"&gt; &lt;/script&gt;<br>
+element('#yip-js-script').innerHTML = `&lt;script src="${window.location.href.split('resources')[0]}aquelarre-yip/src/yip.js"&gt; &lt;/script&gt;<br>
 &lt;script&gt;
-    window.SummonCoven || document.write('&lt;script src="https://alexakitsune.github.io/Coven/yip.js"&gt;\\x3C/script&gt;');
+    window.SummonCoven || document.write('&lt;script src="https://alexakitsune.github.io/Coven/aquelarre-yip/src/yip.js"&gt;\\x3C/script&gt;');
 &lt;/script&gt;`;
-element('#yip-js-script-vue').innerHTML = `if (document.getElementById('coven-script')) return;<br>
+/*element('#yip-js-script-vue').innerHTML = `if (document.getElementById('coven-script')) return;<br>
 var CovenScript = document.createElement("script");<br>
 CovenScript.src = "https://alexakitsune.github.io/Coven/yip.js";<br>
 CovenScript.id = "coven-script";<br>
-document.getElementsByTagName('head')[0].appendChild(CovenScript); `;
+document.getElementsByTagName('head')[0].appendChild(CovenScript); `;*/
 
 //Setting codemirrors:
 setCodeMirror("yip_js_DOMready", false, "javascript");
@@ -207,12 +268,17 @@ setCodeMirror("yip_js_timeStepper_example2", false, "javascript");
             a += 1;
         });
     })
+setCodeMirror("yip_js_clicked", false, "javascript");
+setCodeMirror("yip_js_clicked_example1", false, "javascript");
+    clicked('#clickMe', ()=>{ alert("It works") });
 setCodeMirror("yip_js_yipGetDate", false, "javascript");
 setCodeMirror("yip_js_yipGetDate_example1", false, "javascript");
     clicked("#myButton6", ()=>{
         element("#myButton6").innerHTML = `La hora es: ${Hour()} horas con ${Minute()} minutos y ${Second()} segundos.`;   
     })
-
-  
+setCodeMirror("yip_js_withEnterTriggerClick", false, "javascript");
+setCodeMirror("yip_js_withEnterTriggerClick_example1", false, "htmlmixed");
+    clicked('#myButton7', ()=>{alert('It works')});
+    withEnterTriggerClick('#myInput1', '#myButton7');
 </script>
 </html>
