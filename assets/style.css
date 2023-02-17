@@ -41,7 +41,7 @@ body{
     grid-template-areas:"CovenAside_ CovenNav_"
                         "CovenAside_ CovenArticle_";
     grid-template-columns: 34ch calc(100% - 34ch);
-    grid-template-rows: 6.3ch calc(100% - 6.3ch);
+    grid-template-rows: 6ch calc(100% - 6.3ch);
 }
 
 #coven-section-MAIN{
@@ -60,7 +60,7 @@ body{
     justify-content: space-between;
     padding: 0 3ch;
     width: calc(100% - 40ch + 0.5ch);
-    height: 5.5ch;
+    height: 6.1ch;
     color: white;
     font-family: sans-serif;
     position: fixed;
