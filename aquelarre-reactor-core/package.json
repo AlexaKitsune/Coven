@@ -1,6 +1,6 @@
 {
-  "name": "aquelarre-yip",
-  "version": "0.0.2",
+  "name": "aquelarre-reactor-core",
+  "version": "0.0.1",
   "description": "Javascript codebase by and for Aquelarre",
   "main": "src/yip.js",
   "scripts": {

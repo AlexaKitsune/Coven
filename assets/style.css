@@ -59,7 +59,7 @@ body{
     align-items: center;
     justify-content: space-between;
     padding: 0 3ch;
-    width: calc(100% - 34ch + 0.5ch);
+    width: calc(100% - 40ch + 0.5ch);
     height: 5.5ch;
     color: white;
     font-family: sans-serif;

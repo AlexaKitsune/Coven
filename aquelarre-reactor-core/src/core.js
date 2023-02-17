@@ -1,6 +1,7 @@
 /** @author Alexa N <alexa.nc.kitsune@gmail.com> */
 
-Window.prototype.SummonCoven =()=> true;
+if(typeof window !== 'undefined')
+    Window.prototype.SummonCoven =()=> true;
 
 const DOMready =(function_)=> document.addEventListener("DOMContentLoaded", function_);
 const element =(element_)=> document.querySelector(element_);
@@ -19,7 +20,7 @@ const Year =()=> new Date().getFullYear();
 const Century =()=> Year() < 100 ? 1 : parseInt(String(Year()).slice(0,-2))+1;
 const Millennium =()=> Math.floor(parseInt(Century()) / 10);
 
-function timeStepper(mili_seconds_, steps_, function_){
+const timeStepper = function(mili_seconds_, steps_, function_){
     let interval = 0;
     for(let i=0; i< steps_; i++){
         interval += mili_seconds_;
@@ -428,8 +429,82 @@ function range(start_, end_, steps_=1){
 
 const getInnerHTML =(element_)=> element(element_).innerHTML;
 
+class Slider{
+
+    constructor(id_){
+        this.id_ = id_;
+    }
+
+    createSlider(appendInto_, displays_, transitionDuration_){
+        let SliderDiv = document.createElement('div');
+        SliderDiv.id = this.id_;
+        SliderDiv.style.display = "flex";
+        SliderDiv.style.width = "100%";
+        SliderDiv.style.overflow = "hidden";
+        element(appendInto_).appendChild(SliderDiv);
+
+        for(let x of range(1, displays_)){
+            let SliderDivDisplay = document.createElement('div');
+            SliderDivDisplay.className = `${this.id_}-${x}`;
+            element(`#${this.id_}`).appendChild(SliderDivDisplay);
+            DOMready(()=>{
+                SliderDivDisplay.style.display = "flex";
+                SliderDivDisplay.style.order = x;
+                SliderDivDisplay.style.minWidth = `${SliderDiv.offsetWidth}px`;
+                SliderDivDisplay.style.width = `${SliderDiv.offsetWidth}px`;
+                SliderDivDisplay.style.transition = `margin-left ${transitionDuration_}ms`;
+            });
+        }
+    }
+
+    animations(displays_, screenTime_){
+        let currentDisplay = 1;
+
+        setInterval(() => {
+            if(currentDisplay > displays_)
+                currentDisplay = 1;
+            for(let x of range(1, displays_)){
+                stylize(`.${this.id_}-${x}`).display = "none";
+                stylize(`.${this.id_}-${x}`).marginLeft = "0";
+            }
+
+            stylize(`.${this.id_}-${currentDisplay}`).display = "flex";
+
+            if(currentDisplay == displays_){
+                stylize(`.${this.id_}-${1}`).order = `${displays_+1}`;
+                stylize(`.${this.id_}-${1}`).display = "flex";
+                stylize(`.${this.id_}-${displays_}`).marginLeft = "-100%";
+            }else{
+                stylize(`.${this.id_}-${1}`).order = "1";
+                stylize(`.${this.id_}-${currentDisplay+1}`).display = "flex";
+                stylize(`.${this.id_}-${currentDisplay}`).marginLeft = "-100%";
+            }
+            
+            currentDisplay += 1;
+        }, screenTime_);
+    }
+
+    drawSlider(appendInto_, displays_, screenTime_, transitionDuration_=500){
+            try{ element(`#${this.id_}`).remove(); } catch(error){ error }
+        
+            this.createSlider(appendInto_, displays_, transitionDuration_);
+
+            this.animations(displays_, screenTime_);
+    }
+
+    moveToDisplay(element_, targetDisplay_){
+        element(`.${this.id_}-${targetDisplay_}`).appendChild(element(element_));
+    }
+
+}
+
+function rand(randomArray_){
+    let index = Math.floor((Math.random()*(0 - randomArray_.length)) + randomArray_.length);
+    return randomArray_[index];
+}
+
 try {
     module.exports = {
-        DOMready, element, elements, stylize, rewriteCSS, stackCSS, clicked, Second, Minute, Hour, Day, Month, Year, Century, Millennium, timeStepper, withEnterTriggerClick, withKeyTriggerFunction, newElement, connectorLine, SpanishTransliterate, KanjiTransliterate, transliterate, circleChart, keyByIndex, valueByIndex, keyByValue, range, getInnerHTML
+        DOMready, element, elements, stylize, rewriteCSS, stackCSS, clicked, Second, Minute, Hour, Day, Month, Year, Century, Millennium, timeStepper, withEnterTriggerClick, withKeyTriggerFunction, newElement, connectorLine, SpanishTransliterate, KanjiTransliterate, transliterate, circleChart, keyByIndex, valueByIndex, keyByValue, range, getInnerHTML, Slider, rand
     }; 
 } catch (error) { error }

@@ -95,7 +95,7 @@ const ARTICLES = {
 };
 
 const RESOURCES = {
-    "Yip.js" : "3__Yip.js.html",
+    "Aquelarre Reactor Core" : "3__Yip.js.html",
     "Editor JS en línea" : "2__Editor_JS_en_linea.html",
     "Pentagrama con HTML y CSS" : "1__Pentagrama_con_HTML_y_CSS.html" 
 };
